@@ -2,3 +2,12 @@
 layout: default
 ---
 {% include post.html %}
+
+<h2>{{ page.title }}</h2>
+<p>Posted on {{ page.date | date_to_string }} in
+{% for category in page.categories %}
+<a href="/categories/#{{ category | slugify }}">{{ category }}</a>
+{% if forloop.last == false %}, {% endif %}
+{% endfor %}
+</p>
+{{ content }}
