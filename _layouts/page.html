@@ -2,3 +2,9 @@
 layout: default
 ---
 {% include page.html %}
+
+{% for page in site.pages %}
+  {% if page.path contains 'Category1' %}
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  {% endif %}
+{% endfor %}
